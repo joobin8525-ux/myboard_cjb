@@ -23,7 +23,7 @@ class BoardDAO:
         conn = self.get_connection()
         cursor = conn.cursor()
         
-        # 💡 ORDER BY id DESC -> ORDER BY num DESC로 수정 완료!
+       
         sql = "SELECT num, title, writer, DATE_FORMAT(created_at, '%%Y-%%m-%%d') FROM board ORDER BY num DESC"
         cursor.execute(sql)
         rows = cursor.fetchall()
@@ -37,7 +37,7 @@ class BoardDAO:
         conn = self.get_connection()
         cursor = conn.cursor()
         
-        # 💡 %s 개수와 매개변수 개수(4개) 일치 완료!
+       
         sql = "INSERT INTO board (title, content, writer, password) VALUES (%s, %s, %s, %s)"
         cursor.execute(sql, (title, content, writer, password))
         
@@ -50,7 +50,7 @@ class BoardDAO:
         conn = self.get_connection()
         cursor = conn.cursor()
         
-        # 💡 WHERE id = %s -> WHERE num = %s로 수정 완료!
+        
         sql = """
             SELECT num, title, content, writer, 
                    DATE_FORMAT(created_at, '%%Y-%%m-%%d %%H:%%i'), likes 
@@ -69,7 +69,7 @@ class BoardDAO:
         conn = self.get_connection()
         cursor = conn.cursor()
         
-        # 💡 WHERE id = %s -> WHERE num = %s로 수정 완료!
+        
         sql_check = "SELECT password FROM board WHERE num = %s"
         cursor.execute(sql_check, (num,))
         row = cursor.fetchone()
@@ -90,7 +90,7 @@ class BoardDAO:
         conn = self.get_connection()
         cursor = conn.cursor()
         
-        # 💡 WHERE id = %s -> WHERE num = %s로 수정 완료!
+        
         sql = "UPDATE board SET likes = likes + 1 WHERE num = %s"
         cursor.execute(sql, (num,))
         
