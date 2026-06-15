@@ -22,7 +22,7 @@ while True:
         title = input("제목 : ")
         content = input("내용 : ")
         writer = input("작성자 : ")
-        password = input("비밀번호 : ") # 💡 비밀번호 입력 추가
+        password = input("비밀번호 : ") 
         
         board_dao.insert_board(title, content, writer, password)
         print("등록 완료")
@@ -43,9 +43,9 @@ while True:
 
     elif menu == "4":
         num = input("삭제 번호 : ")
-        password = input("비밀번호 입력 : ") # 💡 삭제 시 비밀번호 확인
+        password = input("비밀번호 입력 : ") 
         
-        # delete_board 메서드가 성공 여부(True/False)를 반환하도록 설계합니다.
+        
         success = board_dao.delete_board(num, password)
         
         if success:
